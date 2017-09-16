@@ -76,9 +76,16 @@ const parseSingle = (url) => {
     payload['ratings'] = $('.c-rating-total__text-rating-average em').text();
     payload['currencySymbol'] = $('#special_currency_box').text();
     payload['image'] = $('#productImageBox .productImage').data('swapImage');
-    payload['description'] = $('.prd-attributesList li span').text();
     payload['meta'] = {};
     payload['common'] = {};
+
+    let description = '';
+
+    $('.prd-attributesList li span').each((_ind, el) => {
+      description += $(el).text().trim() + '. ';
+    });
+
+    payload['description'] = description.trim();
 
     $('table.specification-table tbody tr').each((_ind, node) => {
       const

@@ -11,3 +11,4 @@ Inorder to start the server,
 ```
 npm start
 ```
+*Note* Comprator has been tuned just for products of site *lazada*.
